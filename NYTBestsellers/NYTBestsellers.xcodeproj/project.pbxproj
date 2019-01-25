@@ -16,6 +16,20 @@
 		5718C00221FA772600A8E4B8 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718C00121FA772600A8E4B8 /* AppError.swift */; };
 		5718C00421FA77AA00A8E4B8 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718C00321FA77AA00A8E4B8 /* DataPersistenceManager.swift */; };
 		5718C00621FA78BA00A8E4B8 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5718C00521FA78BA00A8E4B8 /* ImageHelper.swift */; };
+		90014C7D21FB91540068F98F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C7C21FB91540068F98F /* FirstViewController.swift */; };
+		90014C8421FB92AC0068F98F /* FirstCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C8321FB92AC0068F98F /* FirstCell.swift */; };
+		90014C8721FB97680068F98F /* FirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C8621FB97680068F98F /* FirstView.swift */; };
+		90014C8B21FBA5D60068F98F /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C8A21FBA5D60068F98F /* FavoritesViewController.swift */; };
+		90014C8D21FBAEE30068F98F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C8C21FBAEE30068F98F /* SettingsViewController.swift */; };
+		90014C8F21FBAF050068F98F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C8E21FBAF050068F98F /* SettingsView.swift */; };
+		90014C9121FBB3A80068F98F /* NYTAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9021FBB3A80068F98F /* NYTAPIClient.swift */; };
+		90014C9321FBB3B90068F98F /* GoogleAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9221FBB3B90068F98F /* GoogleAPIClient.swift */; };
+		90014C9521FBB8650068F98F /* BooksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9421FBB8650068F98F /* BooksModel.swift */; };
+		90014C9721FBB8C20068F98F /* NYTBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9621FBB8C20068F98F /* NYTBooks.swift */; };
+		90014C9921FBB8CB0068F98F /* GoogleBooks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9821FBB8CB0068F98F /* GoogleBooks.swift */; };
+		90014C9C21FBBED40068F98F /* Favorties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9B21FBBED40068F98F /* Favorties.swift */; };
+		90014C9E21FBC1EC0068F98F /* FavortiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9D21FBC1EC0068F98F /* FavortiesView.swift */; };
+		90014CA021FBC2050068F98F /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90014C9F21FBC2050068F98F /* FavoritesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +44,20 @@
 		5718C00121FA772600A8E4B8 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		5718C00321FA77AA00A8E4B8 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		5718C00521FA78BA00A8E4B8 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		90014C7C21FB91540068F98F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		90014C8321FB92AC0068F98F /* FirstCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCell.swift; sourceTree = "<group>"; };
+		90014C8621FB97680068F98F /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
+		90014C8A21FBA5D60068F98F /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		90014C8C21FBAEE30068F98F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		90014C8E21FBAF050068F98F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		90014C9021FBB3A80068F98F /* NYTAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTAPIClient.swift; sourceTree = "<group>"; };
+		90014C9221FBB3B90068F98F /* GoogleAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPIClient.swift; sourceTree = "<group>"; };
+		90014C9421FBB8650068F98F /* BooksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksModel.swift; sourceTree = "<group>"; };
+		90014C9621FBB8C20068F98F /* NYTBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYTBooks.swift; sourceTree = "<group>"; };
+		90014C9821FBB8CB0068F98F /* GoogleBooks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooks.swift; sourceTree = "<group>"; };
+		90014C9B21FBBED40068F98F /* Favorties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorties.swift; sourceTree = "<group>"; };
+		90014C9D21FBC1EC0068F98F /* FavortiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavortiesView.swift; sourceTree = "<group>"; };
+		90014C9F21FBC2050068F98F /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +92,10 @@
 			children = (
 				5718C00721FA78E800A8E4B8 /* Network Services */,
 				5718C00921FA791C00A8E4B8 /* File Manager Helpers */,
+				90014C9A21FBB8D00068F98F /* Models */,
 				5718C00821FA790000A8E4B8 /* Date Helpers */,
+				90014C8221FB92920068F98F /* Controllers */,
+				90014C8521FB92B10068F98F /* Cells */,
 				5718BFFA21FA75C000A8E4B8 /* Supporting Files */,
 				5718BFF421FA75A900A8E4B8 /* Info.plist */,
 			);
@@ -87,6 +118,8 @@
 				5718C00121FA772600A8E4B8 /* AppError.swift */,
 				5718C00521FA78BA00A8E4B8 /* ImageHelper.swift */,
 				5718BFFF21FA771800A8E4B8 /* NetworkHelper.swift */,
+				90014C9021FBB3A80068F98F /* NYTAPIClient.swift */,
+				90014C9221FBB3B90068F98F /* GoogleAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -103,9 +136,42 @@
 		5718C00921FA791C00A8E4B8 /* File Manager Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				90014C9421FBB8650068F98F /* BooksModel.swift */,
 				5718C00321FA77AA00A8E4B8 /* DataPersistenceManager.swift */,
 			);
 			path = "File Manager Helpers";
+			sourceTree = "<group>";
+		};
+		90014C8221FB92920068F98F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				90014C8621FB97680068F98F /* FirstView.swift */,
+				90014C7C21FB91540068F98F /* FirstViewController.swift */,
+				90014C9D21FBC1EC0068F98F /* FavortiesView.swift */,
+				90014C8A21FBA5D60068F98F /* FavoritesViewController.swift */,
+				90014C8E21FBAF050068F98F /* SettingsView.swift */,
+				90014C8C21FBAEE30068F98F /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		90014C8521FB92B10068F98F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				90014C8321FB92AC0068F98F /* FirstCell.swift */,
+				90014C9F21FBC2050068F98F /* FavoritesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		90014C9A21FBB8D00068F98F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				90014C9621FBB8C20068F98F /* NYTBooks.swift */,
+				90014C9821FBB8CB0068F98F /* GoogleBooks.swift */,
+				90014C9B21FBBED40068F98F /* Favorties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,13 +244,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90014C9E21FBC1EC0068F98F /* FavortiesView.swift in Sources */,
+				90014C8B21FBA5D60068F98F /* FavoritesViewController.swift in Sources */,
 				5718C00021FA771800A8E4B8 /* NetworkHelper.swift in Sources */,
+				90014C8721FB97680068F98F /* FirstView.swift in Sources */,
+				90014C9121FBB3A80068F98F /* NYTAPIClient.swift in Sources */,
+				90014C9721FBB8C20068F98F /* NYTBooks.swift in Sources */,
 				5718BFFC21FA763200A8E4B8 /* String+DateExtensions.swift in Sources */,
+				90014C9C21FBBED40068F98F /* Favorties.swift in Sources */,
+				90014CA021FBC2050068F98F /* FavoritesCell.swift in Sources */,
+				90014C9321FBB3B90068F98F /* GoogleAPIClient.swift in Sources */,
+				90014C8421FB92AC0068F98F /* FirstCell.swift in Sources */,
 				5718C00221FA772600A8E4B8 /* AppError.swift in Sources */,
+				90014C9921FBB8CB0068F98F /* GoogleBooks.swift in Sources */,
+				90014C7D21FB91540068F98F /* FirstViewController.swift in Sources */,
 				5718C00421FA77AA00A8E4B8 /* DataPersistenceManager.swift in Sources */,
+				90014C9521FBB8650068F98F /* BooksModel.swift in Sources */,
 				5718BFE921FA75A800A8E4B8 /* AppDelegate.swift in Sources */,
 				5718BFFE21FA764E00A8E4B8 /* Date+Extensions.swift in Sources */,
 				5718C00621FA78BA00A8E4B8 /* ImageHelper.swift in Sources */,
+				90014C8D21FBAEE30068F98F /* SettingsViewController.swift in Sources */,
+				90014C8F21FBAF050068F98F /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RJ364J35FH;
 				INFOPLIST_FILE = NYTBestsellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -341,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = RJ364J35FH;
 				INFOPLIST_FILE = NYTBestsellers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
