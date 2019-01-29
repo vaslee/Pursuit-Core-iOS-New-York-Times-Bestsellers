@@ -9,9 +9,9 @@
 import UIKit
 
 class FirstCell: UICollectionViewCell {
-    
+
     lazy var bestBookImage: UIImageView = {
-        let iv = UIImageView(image: UIImage(named: "sledgehammer"))
+        let iv = UIImageView(image: UIImage(named: "placeholder"))
         
         
         return iv
@@ -19,17 +19,19 @@ class FirstCell: UICollectionViewCell {
     
     lazy var weeksOnListLabel: UILabel = {
         let label = UILabel()
-        label.textColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1) //设置字体颜色
-        label.text = "I'm here!"
-        label.textAlignment = .center //把字体放在中间
-        label.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) // 设置字体背景颜色
+        
+        label.textColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
+            label.text = "Label"
+        label.textAlignment = .center
+        label.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         return label
     }()
     
     lazy var firstDescriptionTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Sloth, Manny and Me are the best Friends"
+       
+        textView.text = "Description"
         textView.textColor = .yellow
         textView.backgroundColor = #colorLiteral(red: 0.5704585314, green: 0.5704723597, blue: 0.5704649091, alpha: 1)
         
@@ -98,6 +100,7 @@ extension FirstCell {
         firstDescriptionTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         firstDescriptionTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         firstDescriptionTextView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        firstDescriptionTextView.isEditable = false
     }
     
     

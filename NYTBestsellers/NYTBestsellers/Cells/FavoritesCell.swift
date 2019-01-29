@@ -35,6 +35,8 @@ class FavoritesCell: UICollectionViewCell {
         return textView
     }()
     
+   
+    
     lazy var alertButton: UIButton = {
         let button = UIButton()
        
@@ -55,7 +57,7 @@ class FavoritesCell: UICollectionViewCell {
         
         alert.addAction(deleteButton)
         alert.addAction(cancelButton)
-        //present(alert, animated: true, completion: nil)
+//        self.present(alert, animated: true, completion: nil)
         print("Whats up")
     }
     

@@ -18,11 +18,13 @@ class FavortiesView: UIView {
         
         let CV = UICollectionView.init(frame: bounds, collectionViewLayout: layout)
         CV.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        CV.dataSource = self
-        CV.delegate = self
+    
         
         return CV
     }()
+    
+    
+    
     
     override init(frame: CGRect) {
         
@@ -44,14 +46,3 @@ class FavortiesView: UIView {
     }
 }
 
-extension FavortiesView: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoritesCell", for: indexPath) as? FavoritesCell else {
-            return UICollectionViewCell() }
-        return cell
-    }
-}

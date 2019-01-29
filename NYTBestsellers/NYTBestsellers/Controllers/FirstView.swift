@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol FirstViewControllerDelegate: AnyObject {
-    func pickerColor(color: UIColor)
-}
 
 class FirstView: UIView {
-    
-    var pickerColors: [String] = [String]()
-
-    weak var delegate: FirstViewControllerDelegate?
+ 
     
     lazy var firstPickerView: UIPickerView = {
         let pv = UIPickerView()
@@ -34,8 +28,7 @@ class FirstView: UIView {
         
         let CV = UICollectionView.init(frame: bounds, collectionViewLayout: layout)
         CV.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        CV.dataSource = self
-        CV.delegate = self
+       
         
         return CV
     }()
@@ -48,12 +41,7 @@ class FirstView: UIView {
         setupFirstPickerViewConstraints()
         setupFirstCollectionViewConstraints()
  
-        
-        
-        firstPickerView.dataSource = self
-        firstPickerView.delegate = self
-        pickerColors = ["blue", "yellow", "black", "green"]
-
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -77,48 +65,3 @@ class FirstView: UIView {
     }
 }
 
-extension FirstView: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FirstCell", for: indexPath) as? FirstCell else {
-            return UICollectionViewCell() }
-        return cell
-    }
-}
-
-extension FirstView: UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerColors.count
-        
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerColors[row]
-    }
-    
-}
-
-extension FirstView: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch row {
-        case 0:
-            self.delegate?.pickerColor(color: .blue)
-        case 1:
-            self.delegate?.pickerColor(color: .yellow)
-        case 2:
-            self.delegate?.pickerColor(color: .black)
-        case 3:
-            self.delegate?.pickerColor(color: .green)
-        default:
-            print("No data")
-            
-        }
-    }
-}

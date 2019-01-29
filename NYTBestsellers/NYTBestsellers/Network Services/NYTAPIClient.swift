@@ -10,9 +10,9 @@ import Foundation
 
 final class NYTAPIClient {
     
-    static func searchBooks(completionHandler: @escaping (AppError?, [BooksInfo]?) -> Void) {
-        
-        NetworkHelper.shared.performDataTask(endpointURLString: "https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=D0DWoNna2bGiUkH3YisdpyttasngPjPv", handler: { (appError, data) in
+    static func searchBooks(category: String,completionHandler: @escaping (AppError?, [BooksInfo]?) -> Void) {
+        let category = category.replacingOccurrences(of: " ", with: "-")
+        NetworkHelper.shared.performDataTask(endpointURLString: "https://api.nytimes.com/svc/books/v3/lists.json?api-key=\(SecretKeys.NYTKey)&list=\(category)", handler: { (appError, data) in
             if let appError = appError {
                 completionHandler(appError, nil)
             }

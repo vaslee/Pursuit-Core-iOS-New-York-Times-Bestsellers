@@ -9,18 +9,22 @@
 import Foundation
 
 struct GoogleBooks: Codable {
-    let items: [GBooksInfo]
+    let items: [GBooksInfo]?
 }
 
 struct GBooksInfo: Codable {
-    let volumeInfo: [BooksWapper]
+    let volumeInfo: BooksWapper?
 }
 
 struct BooksWapper: Codable {
     let title: String
-    let subtitle: String
     let authors: [String]
-    let publisher: String
-    let description: String
-    
+    let publisher: String?
+    let description: String?
+    let imageLinks: ImageWarpper
+}
+
+struct ImageWarpper: Codable {
+    let smallThumbnail: String
+    let thumbnail: String
 }

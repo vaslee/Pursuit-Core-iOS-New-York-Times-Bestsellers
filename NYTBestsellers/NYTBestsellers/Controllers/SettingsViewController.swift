@@ -9,7 +9,14 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    var settingCategories = [CategoriesWarpper](){
+        didSet{
+            DispatchQueue.main.async {
+                self.settingView.secondPickerView.reloadAllComponents()
+            }
+        }
+    }
     var settingView = SettingsView()
     
     override func viewDidLoad() {
@@ -17,18 +24,37 @@ class SettingsViewController: UIViewController {
 
         view.backgroundColor = .white
         view.addSubview(settingView)
+        settingView.secondPickerView.dataSource = self
+        settingView.secondPickerView.delegate = self
+        CategoriesAPIClient.searchCategories { (appError, data) in
+            if let appError = appError {
+                print(appError.errorMessage())
+            } else if let settingCategories = data {
+                self.settingCategories = settingCategories
+
+            }
+        }
+    }
+
+
+}
+extension SettingsViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return settingCategories.count
+
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return settingCategories[row].list_name
+    }
+
+}
+extension SettingsViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
