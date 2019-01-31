@@ -55,6 +55,8 @@ extension SettingsViewController: UIPickerViewDataSource {
 }
 extension SettingsViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        UserDefaults.standard.set(settingCategories[row].list_name, forKey: "BooksList")
+        UserDefaults.standard.set(String(row), forKey: "PickerView")//set new file name
         
     }
 }

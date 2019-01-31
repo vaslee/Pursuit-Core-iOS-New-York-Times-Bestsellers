@@ -42,24 +42,12 @@ class FavoritesCell: UICollectionViewCell {
        
         button.setTitle("● ● ●", for: .normal)
         button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(alertAction), for: .touchUpInside)
+       
         
         return button
     }()
     
-    @objc func alertAction() {
-        alertButton.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
-        let alert = UIAlertController(title: "What do you need?", message: "Please Select an Option", preferredStyle: .actionSheet)
-        let deleteButton = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-            
-        })
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in })
-        
-        alert.addAction(deleteButton)
-        alert.addAction(cancelButton)
-//        self.present(alert, animated: true, completion: nil)
-        print("Whats up")
-    }
+    
     
     
     

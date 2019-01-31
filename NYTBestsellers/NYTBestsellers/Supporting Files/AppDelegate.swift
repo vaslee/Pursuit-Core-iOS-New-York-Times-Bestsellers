@@ -24,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let cellV = FavoritesViewController()
         let settingTV = SettingsViewController()
         navigation.title = "NYT BestSellers"
-        cellV.title = "Favorties"
+        cellV.title = "Favorites"
         settingTV.title = "Settings"
+    navigation.tabBarItem = UITabBarItem(title: "NYT BestSellers", image: UIImage(named: "books"), tag: 0)
+    cellV.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorites"), tag: 1)
+    settingTV.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(named: "setting"), tag: 1)
+    
         tabBar.viewControllers = [navigation, cellV,settingTV]
     
         window = UIWindow.init(frame: UIScreen.main.bounds)

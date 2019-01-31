@@ -13,14 +13,14 @@ struct GoogleBooks: Codable {
 }
 
 struct GBooksInfo: Codable {
-    let volumeInfo: BooksWapper?
+    let volumeInfo: VolumeWapper
 }
 
-struct BooksWapper: Codable {
+struct VolumeWapper: Codable {
     let title: String
     let authors: [String]
     let publisher: String?
-    let description: String?
+    let description: String
     let imageLinks: ImageWarpper
 }
 

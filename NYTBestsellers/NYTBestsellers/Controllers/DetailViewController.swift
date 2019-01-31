@@ -9,14 +9,12 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+  
+    public var detailShow: BooksInfo?
+    public var imageOfBooks: UIImage?
+    public var descriptionOfBooks: String?
+
     
-    var detail = [BooksInfo]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.detailView.reloadInputViews()
-            }
-        }
-    }
     let detailView = DetailView ()
     
     override func viewDidLoad() {
@@ -26,21 +24,22 @@ class DetailViewController: UIViewController {
         
         view.backgroundColor = .white
         view.addSubview(detailView)
-//        
-//        GoogleAPIClient.searchGoogle(isbn: detail[0].book_details[0].primary_isbn13) { (error, data) in
-//            if let error = error {
-//                print(error.errorMessage())
-//            } else if let data = data {
-//                ImageHelper.fetchImageFromNetwork(urlString: (data.imageLinks.smallThumbnail) ) { (appError, image) in
-//                    if let appError = appError {
-//                        print(appError.errorMessage())
-//                        
-//                    }else if let image = image {
-//                        self.detailView.detailBookImage.image = image
-//                    }
-//                }
-//            }
-//        }
+        setupData()
+
+        
+    }
+    func setupData() {
+        if let authors = detailShow?.book_details[0].author {
+            detailView.detailAuthorsName.text = authors
+        }
+        
+        if let images = imageOfBooks {
+            detailView.detailBookImage.image = images
+        }
+        
+        if let descriptions = descriptionOfBooks {
+            detailView.detailDescriptionOfBook.text = descriptions
+        }
         
     }
     private func showAlert(title: String, message: String) {
@@ -53,8 +52,35 @@ class DetailViewController: UIViewController {
     @objc func favoritePressed() {
         
         
+        if let image = detailView.detailBookImage.image, let authors = detailView.detailAuthorsName.text, let escription = detailView.detailDescriptionOfBook.text {
+
+//            let date = Date()
+//            let isoDateFormatter = ISO8601DateFormatter()
+//            isoDateFormatter.formatOptions = [.withFullDate, .withFullTime, .withInternetDateTime, .withTimeZone,.withDashSeparatorInDate]
+//
+//            let timestamp = isoDateFormatter.string(from: date)
+//
+            let timestamp = Date.getISOTimestamp()
+            guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+                return print("no image data")
+            }
+            guard let descriptions = detailView.detailDescriptionOfBook.text else {
+                return print("no descriptions data")
+            }
+            guard let authors = detailView.detailAuthorsName.text else {
+                return print("no authors data")
+            }
+//
+            
+            let favortie = Favorite.init(createdAt: timestamp, imageData: imageData, author: authors, description: descriptions)
+            
+            if let bookDetail = detailShow {
+                BooksModel.addBook(item: favortie)
+                showAlert(title: "Save", message: "Image Saved")
+            }
+            
+        }
         
-        showAlert(title: "Save", message: "Book Saved")
     }
 
 }

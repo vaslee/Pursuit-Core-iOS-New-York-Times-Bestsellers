@@ -11,5 +11,7 @@ struct Favorite: Codable {
     
     let createdAt: String
     let imageData: Data
+    let author: String?
+    let description: String?
     
 }

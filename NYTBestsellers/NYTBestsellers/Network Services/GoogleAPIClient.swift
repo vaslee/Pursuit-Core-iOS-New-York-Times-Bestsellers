@@ -10,7 +10,7 @@ import Foundation
 
 final class GoogleAPIClient {
     
-    static func searchGoogle(isbn: String, completionHandler: @escaping (AppError?, BooksWapper?) -> Void) {
+    static func searchGoogle(isbn: String, completionHandler: @escaping (AppError?, [GBooksInfo]?) -> Void) {
         
         NetworkHelper.shared.performDataTask(endpointURLString: "https://www.googleapis.com/books/v1/volumes?q=\(isbn)&key=\(SecretKeys.GoogleKey)", handler: { (appError, data) in
     
@@ -22,7 +22,7 @@ final class GoogleAPIClient {
                 do {
                     let googleBooksData = try JSONDecoder().decode(GoogleBooks.self, from: data)
                     
-                    completionHandler(nil, googleBooksData.items!.first?.volumeInfo)
+                    completionHandler(nil, googleBooksData.items)
                   
                 } catch {
                     completionHandler(AppError.jsonDecodingError(error), nil)

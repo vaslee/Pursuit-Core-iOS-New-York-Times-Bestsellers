@@ -8,15 +8,12 @@
 
 import UIKit
 
+
 class FirstViewController: UIViewController {
 
-//    var googleBooks = [BooksInfo]() {
-//        didSet {
-//            DispatchQueue.main.async {
-//                self.firstView.firstCollectionView.reloadData()
-//            }
-//        }
-//    }
+    var bookDescription = String()
+    var selectedIsbn = String()
+    
     var nytBooks = [BooksInfo]() {
         didSet {
             DispatchQueue.main.async {
@@ -53,33 +50,34 @@ class FirstViewController: UIViewController {
             }
         }
         self.firstView.firstCollectionView.register(FirstCell.self, forCellWithReuseIdentifier: "FirstCell")
+        defaultSetting()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        defaultSetting()
+        
         
     }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       let book = nytBooks[indexPath.row]
-        
-        
-        let detailVC = DetailViewController()
-        detailVC.detailView.detailAuthorsName.text = book.book_details[0].author
-        
-//        let books = googleBooks[indexPath.row]
-        
-        detailVC.detailView.detailDescriptionOfBook.text = book.book_details[0].description
-//        
-//        detailVC.detailView.detailBookImage = UIImageView(image: UIImage(named: book.book_details[0].primary_isbn13))
-//        
-        
-        // or use dependency injection
-        // let detailVC = DetailViewController(book: book)
-        
-        // assuming you have embedded in a navigation controller
-        navigationController!.pushViewController(detailVC, animated: true)
-        
+    func defaultSetting() {
+        if let userDefault = UserDefaults.standard.object(forKey: "BooksList") as? String {
+            NYTAPIClient.searchBooks(category: userDefault.replacingOccurrences(of: " ", with: "-")) { (appError, data) in
+                if let appError = appError {
+                    print(appError.errorMessage())
+                } else if let nytbooks = data {
+                    self.nytBooks = nytbooks
+                    
+                }// change the cv when setting pv pick something
+            }
+        }
+        // always unwarpping things when we use userDefalut
+        if let pickerViewDefault = UserDefaults.standard.object(forKey: "PickerView") as? String {
+            self.firstView.firstPickerView.selectRow(Int(pickerViewDefault)!, inComponent: 0, animated: true) //at first it didnt works, but back to settingVC change the Int to String(Int) it will works!
+        } // picker row for the first vc when setting pv selecte something(call Int because its row = number)
     }
 
   
 }
-extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension FirstViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return nytBooks.count
     }
@@ -90,22 +88,43 @@ extension FirstViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let nytBook = nytBooks[indexPath.row]
         cell.weeksOnListLabel.text = nytBooks[indexPath.row].weeks_on_list.description + "weeks on best seller list"
         cell.firstDescriptionTextView.text = nytBooks[indexPath.row].book_details[0].description
+        
         GoogleAPIClient.searchGoogle(isbn: nytBook.book_details[0].primary_isbn13) { (error, data) in
             if let error = error {
                 print(error.errorMessage())
-            } else if let data = data {
-                ImageHelper.fetchImageFromNetwork(urlString: (data.imageLinks.smallThumbnail) ) { (appError, image) in
+            }
+            if let imageData = data {
+                
+                self.bookDescription = imageData[0].volumeInfo.description
+                
+                let imageToSet = imageData[0].volumeInfo.imageLinks.smallThumbnail
+                ImageHelper.fetchImageFromNetwork(urlString: (imageToSet) ) { (appError, image) in
                 if let appError = appError {
                     print(appError.errorMessage())
                     
                 }else if let image = image {
                     cell.bestBookImage.image = image
+                    
                 }
             }
             }
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = nytBooks[indexPath.row]
+        guard let cell = collectionView.cellForItem(at: indexPath) as? FirstCell else { return }
+        
+        let detailVC = DetailViewController()
+        
+        detailVC.detailShow = book
+        detailVC.imageOfBooks = cell.bestBookImage.image
+        detailVC.descriptionOfBooks = bookDescription
+       
+        navigationController!.pushViewController(detailVC, animated: true)
+        
     }
 }
 
